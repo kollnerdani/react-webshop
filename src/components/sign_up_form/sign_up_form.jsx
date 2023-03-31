@@ -47,7 +47,9 @@ const SignUpForm = () => {
                          type = "password"
                     }
                     return (
-                        <FormInput label={key.toLowerCase()} inputOptions={{type:type, onChange:handleChange, value:value, name:key, required: true}} />
+                        <div key={key}>
+                            <FormInput  label={key.toLowerCase()} inputOptions={{type:type, onChange:handleChange, value:value, name:key, required: true}} />
+                        </div>
                     )
                 })}
                <div >
