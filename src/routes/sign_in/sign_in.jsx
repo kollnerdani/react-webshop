@@ -1,6 +1,5 @@
-import { useEffect } from "react";
-import { getRedirectResult } from 'firebase/auth'
-import { auth, signInWithGooglePopUp, signInWithGoogleRedirect ,createUserDocument } from '../../utils/firebase/firebase';
+
+import { auth, signInWithGooglePopUp ,createUserDocument } from '../../utils/firebase/firebase';
 
 
 const SignIn = () => {
