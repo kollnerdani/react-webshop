@@ -1,13 +1,17 @@
-import {useContext} from "react";
+import { useContext } from "react";
 import { CartContext } from "../../contexts/cart";
 import CheckoutItem from "../../components/checkout_item/checkout_item";
+import './checkout.scss'
 const Checkout = () =>{
-    const { cartItems } = useContext(CartContext)
-    console.log(cartItems)
+    const { cartItems, totalValue } = useContext(CartContext)
     return(
         <div>
-            {cartItems.map((cartItem) => (<CheckoutItem key={cartItem.id} item={cartItem} />))
+            {
+                cartItems.map((cartItem) => (<CheckoutItem key={cartItem.id}  cartItem={ cartItem } />))
             }
+            <div>
+                Total: ${totalValue}
+            </div>
         </div>
     )
 }
