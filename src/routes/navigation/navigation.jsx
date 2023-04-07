@@ -1,5 +1,5 @@
 import { Fragment, useContext } from "react";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { ReactComponent as CrownLogo } from "../../assets/images/crown.svg";
 import CartIcon from "../../components/cart_icon/cart_icon";
 import CartDropdown from "../../components/cart_dropdown/cart_dropdown";
