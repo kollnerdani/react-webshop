@@ -1,5 +1,5 @@
 import './product_card.scss'
-import Button from "../button/button";
+import Button, { BUTTON_TYPE_CLASSES } from "../button/button";
 import { useContext } from "react";
 import { CartContext } from "../../contexts/cart";
 const ProductCard = ({ product }) =>{
@@ -15,7 +15,7 @@ const ProductCard = ({ product }) =>{
                 <span className="name">{name}</span>
                 <span className="price">${price}</span>
             </div>
-            <Button buttonType='inverted' onClick={addItem}>Add to cart </Button>
+            <Button buttonType={BUTTON_TYPE_CLASSES.inverted} onClick={addItem}>Add to cart </Button>
         </div>
     )
 }
