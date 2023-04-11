@@ -29,7 +29,8 @@ const INITIAL_STATE = {
 }
 
 const CART_ACTION_TYPES = {
-    SET_CART_ITEMS: 'SET_CART_ITEMS'
+    SET_CART_ITEMS: 'SET_CART_ITEMS',
+    SET_IS_CART_OPEN: 'SET_IS_CART_OPEN'
 }
 
 const cartReducer = (state, action) => {
@@ -40,6 +41,11 @@ const cartReducer = (state, action) => {
             ...state,
             ...payload
         }
+        case CART_ACTION_TYPES.SET_IS_CART_OPEN:
+            return{
+                ...state,
+                isCartOpen: payload
+            }
         default:
             throw new Error(`Unhandled type ${type} in cartReducer`);
 
@@ -73,7 +79,10 @@ export const CartProvider = ({children}) =>{
     const updateCartItemReducer = (newCartItems) => {
         const newCartCount = newCartItems.reduce((total, cartItem) => total + cartItem.quantity, 0)
         const newTotalValue = newCartItems.reduce((total, cartItem) => total + cartItem.quantity * cartItem.price, 0)
-        dispatch({ type: 'SET_CART_ITEMS', payload: { cartItems: newCartItems, totalValue: newTotalValue, cartCount: newCartCount }})
+        dispatch({ type: CART_ACTION_TYPES.SET_CART_ITEMS, payload: { cartItems: newCartItems, totalValue: newTotalValue, cartCount: newCartCount }})
+    }
+    const setIsCartOpen = (boolean) => {
+        dispatch({ type: CART_ACTION_TYPES.SET_IS_CART_OPEN, payload: boolean })
     }
     const addItemToCart = (productToAdd) =>{
         const newCartItems = addCartItem(cartItems, productToAdd)
@@ -89,7 +98,16 @@ export const CartProvider = ({children}) =>{
         const newCartItems = deleteCartProduct(cartItems, productToDelete)
         updateCartItemReducer(newCartItems)
     }
-    const value = {isCartOpen, setIsCartOpen: true, addItemToCart, cartItems, cartCount, totalValue, removeItemFromCart, deleteItemFromCart}
+    const value = {
+        isCartOpen,
+        setIsCartOpen,
+        addItemToCart,
+        cartItems,
+        cartCount,
+        totalValue,
+        removeItemFromCart,
+        deleteItemFromCart
+    }
 
     return <CartContext.Provider value={ value }>{children}</CartContext.Provider>
 }
