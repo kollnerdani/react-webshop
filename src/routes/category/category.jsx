@@ -1,7 +1,7 @@
 import { useState, useEffect, Fragment } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector } from "react-redux";
-import {selectCategoriesMap} from "../../store/categories/category.selector";
+import { selectCategoriesMap } from "../../store/categories/category.selector";
 import ProductCard from '../../components/product_card/product_card';
 
 import './category.scss';

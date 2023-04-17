@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import {createUserDocument, onAuthStateChangedListener } from "./utils/firebase/firebase";
+import { createUserDocument, onAuthStateChangedListener } from "./utils/firebase/firebase";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 
