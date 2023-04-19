@@ -1,7 +1,7 @@
 import './cart_item.scss';
 
 
-const CartItem = ({cartItem}) =>{
+const CartItem = ({ cartItem }) =>{
     const {name, quantity, price, imageUrl} = cartItem
     return (
         <div className="cart-item-container">
