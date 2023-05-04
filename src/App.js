@@ -9,6 +9,7 @@ import Navigation from './routes/navigation/navigation'
 import Auth from "./routes/auth/auth";
 import Shop from './routes/shop/shop'
 import Checkout from "./routes/checkout/checkout";
+import {fetchCategoriesAsync, fetchCategoriesSuccess} from "./store/categories/category.action";
 
 
 const App = () => {
